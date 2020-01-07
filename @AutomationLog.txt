@@ -1,0 +1,5 @@
+2020-01-05 01:45:56.984 app.py[15] <module> -> Find Control Timeout: {Name: 'Address and search bar', ControlType: EditControl}
+2020-01-05 13:48:11.354 app.py[14] script -> Find Control Timeout: {ControlType: WindowControl}
+2020-01-05 16:45:54.991 app.py[16] script -> Find Control Timeout: {ControlType: EditControl}
+2020-01-05 17:01:48.067 app.py[14] script -> Find Control Timeout: {ClassName: 'Chrome_WidgetWin_1', ControlType: WindowControl}
+2020-01-05 17:04:39.322 app.py[17] script -> Find Control Timeout: {Name: 'Address and search bar', ControlType: EditControl}
