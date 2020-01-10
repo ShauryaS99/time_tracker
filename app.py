@@ -2,6 +2,7 @@ import time
 import win32gui
 import uiautomation as auto
 import regex as re
+import matplotlib.pyplot as plt
 
 def script(duration):
     start_time = time.time()
@@ -44,7 +45,16 @@ def script(duration):
     if application not in app_dict:
         app_dict[application] =  elapsed_time
     app_dict[application] +=  elapsed_time
+    visualize(app_dict)
+def visualize(app_dict):
+    del app_dict[None]
     print(app_dict)
+    plt.figure(figsize=(5,5))
+    labels = list(app_dict.keys())
+    values = list(app_dict.values())
+    plt.pie(values, labels = labels, autopct="%.1f%%")
+    plt.show()
+
 
 duration = float(input("How long would you like me to track your activity (in minutes)? "))
 script(duration)
