@@ -60,6 +60,33 @@ def visualize(app_dict):
     plt.title("Time Tracker for " + str(duration) + " Minutes")
     plt.pie(values, labels = labels, autopct="%.1f%%")
     plt.show()
+def sanitize_input(question):
+    #Sanitize Input
+    options = ["mins", "hours"]
+    duration = 'f'
+    value = 'f'
+    while True:
+        try:
+            prompt = input(question)
+            prompt_mins = re.search(r"([0-9]+)\s?(mins)", prompt)
+            if prompt_mins:
+                duration = int(prompt_mins.group(1))
+                value = prompt_mins.group(2)
+            else:
+                prompt_hours = re.search(r"([0-9]+)\s?(hours)", prompt)
+                if prompt_hours:
+                    duration = int(prompt_hours.group(1)) * 60
+                    value = prompt_hours.group(2) 
+            mins = int(duration)
+        except ValueError:
+            print("Please give your response as [XX mins/ hours] ")
+            continue
+        if value not in options:
+            print("hey give your response as [XX mins/ hours] ")
+            continue
+        else:
+            break
+    return mins
 #Ask User for Duration
-duration = float(input("How long would you like me to track your activity (in minutes)? "))
+duration = sanitize_input("How long would you like me to track your activity [mins/ hours]? ")
 script(duration)
